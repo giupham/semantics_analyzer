@@ -1,0 +1,24 @@
+    TOKEN		LEXEME
+---------------------------------------
+    separator		$$
+    keyword		integer
+    identifier		a
+    separator		;
+    keyword		boolean
+    identifier		b
+    separator		;
+    keyword		integer
+    identifier		c
+    separator		;
+    keyword		while
+    separator		(
+    identifier		a
+    operator		==
+    identifier		b
+    separator		)
+    identifier		a
+    operator		=
+    identifier		c
+    separator		;
+    keyword		fi
+    separator		$$

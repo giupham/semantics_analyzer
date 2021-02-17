@@ -1,0 +1,75 @@
+Token: separator	 Lexeme: $$
+	<RAT20SU> -> $$ <OPT_DEC_LIST> <STATEMENT_LIST> $$
+
+Token: keyword	 Lexeme: integer
+	<OPT_DEC_LIST> -> <DECLARATION_LIST> | <EMPTY>
+	<DECLARATION_LIST> -> <DECLARATION> ; <DECLARATION_LIST_PRIME>
+	<DECLARATION> -> <QUALIFIER> <TT_Identifier>
+	<QUALIFIER> -> integer | boolean
+
+Token: identifier	 Lexeme: a
+
+Token: separator	 Lexeme: ;
+
+Token: keyword	 Lexeme: boolean
+	<DECLARATION_LIST_PRIME> -> <DECLARATION_LIST> | <EMPTY>
+	<DECLARATION_LIST> -> <DECLARATION> ; <DECLARATION_LIST_PRIME>
+	<DECLARATION> -> <QUALIFIER> <TT_Identifier>
+	<QUALIFIER> -> integer | boolean
+
+Token: identifier	 Lexeme: b
+
+Token: separator	 Lexeme: ;
+
+Token: keyword	 Lexeme: integer
+	<DECLARATION_LIST_PRIME> -> <DECLARATION_LIST> | <EMPTY>
+	<DECLARATION_LIST> -> <DECLARATION> ; <DECLARATION_LIST_PRIME>
+	<DECLARATION> -> <QUALIFIER> <TT_Identifier>
+	<QUALIFIER> -> integer | boolean
+
+Token: identifier	 Lexeme: c
+
+Token: separator	 Lexeme: ;
+
+Token: keyword	 Lexeme: while
+	<STATEMENT_LIST> -> <STATEMENT> <STATEMENT_LIST_PRIME>
+	<STATEMENT> -> <COMPOUND> | <ASSIGN> | <IF> | <GET> | <PUT> | <WHILE>
+	<WHILE> -> while ( <CONDITION> ) <STATEMENT>
+
+Token: separator	 Lexeme: (
+
+Token: identifier	 Lexeme: a
+	<CONDITION> -> <EXPRESSION> <RELOP> <EXPRESSION>
+	<EXPRESSION> -> <TERM> <EXPRESSION_PRIME>
+	<TERM> -> <FACTOR> <TERM_PRIME>
+	<FACTOR> -> - <PRIMARY>  | <PRIMARY>
+	<PRIMARY> -> <TT_Identifier> | <TT_Integer> | ( <FACTOR> <TERM_PRIME> <EXPRESSION_PRIME> ) | true | false
+
+Token: operator	 Lexeme: ==
+	<RELOP> -> == | > | <
+
+Token: identifier	 Lexeme: b
+	<EXPRESSION> -> <TERM> <EXPRESSION_PRIME>
+	<TERM> -> <FACTOR> <TERM_PRIME>
+	<FACTOR> -> - <PRIMARY>  | <PRIMARY>
+	<PRIMARY> -> <TT_Identifier> | <TT_Integer> | ( <FACTOR> <TERM_PRIME> <EXPRESSION_PRIME> ) | true | false
+
+Token: separator	 Lexeme: )
+
+Token: identifier	 Lexeme: a
+	<STATEMENT> -> <COMPOUND> | <ASSIGN> | <IF> | <GET> | <PUT> | <WHILE>
+	<ASSIGN> -> <TT_Identifier> = <EXPRESSION> ;
+
+Token: operator	 Lexeme: =
+
+Token: identifier	 Lexeme: c
+	<EXPRESSION> -> <TERM> <EXPRESSION_PRIME>
+	<TERM> -> <FACTOR> <TERM_PRIME>
+	<FACTOR> -> - <PRIMARY>  | <PRIMARY>
+	<PRIMARY> -> <TT_Identifier> | <TT_Integer> | ( <FACTOR> <TERM_PRIME> <EXPRESSION_PRIME> ) | true | false
+
+Token: separator	 Lexeme: ;
+
+Lexeme: fi Syntax Error in line 7: A first of Statement or $$ expected
+Lexeme: fi Syntax Error in line 7: $$ expected
+Semantic Error in line 7: Cannot declare it twice!
